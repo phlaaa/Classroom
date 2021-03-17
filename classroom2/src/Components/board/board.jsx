@@ -42,7 +42,7 @@ function Board(){
                 className="board" 
                 id="board"
                 onMouseDown={startDrawing}
-                onmouseUp={finishDrawing}
+                onMouseUp={finishDrawing}
                 onMouseMove={draw}
                 ref={canvasRef}
             >
