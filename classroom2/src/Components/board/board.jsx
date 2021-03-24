@@ -62,6 +62,9 @@ function Board(props){
 contextRef.current.lineWidth=10;
     }
         return (<>
+          <input type="color" onChange={colorchanger}id="favcolor" name="favcolor" value="#ff0000"/>
+            <button onClick={colorclear}>Clear</button>
+            <button onClick={eraser}>Eraser</button>
             <canvas 
                 className="board" 
                 id="board"
@@ -71,9 +74,7 @@ contextRef.current.lineWidth=10;
                 ref={canvasRef}
             >
             </canvas>
-            <input type="color" onChange={colorchanger}id="favcolor" name="favcolor" value="#ff0000"/>
-            <button onClick={colorclear}>Clear</button>
-            <button onClick={eraser}>Eraser</button>
+          
             </>
             
         )
