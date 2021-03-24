@@ -32,9 +32,9 @@ function Board(){
 
         const context = canvas.getContext("2d")
         context.scale(2,2)
-        context.lineCap = "round"
-        context.strokeStyle= "black"
-        context.lineWidth =5
+        context.lineCap = "square"
+        context.strokeStyle= "#ff0000 "
+        context.lineWidth =1
         contextRef.current = context;
     },[])
         return (
