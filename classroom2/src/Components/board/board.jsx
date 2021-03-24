@@ -4,6 +4,7 @@ function Board(){
     const canvasRef = useRef(null)
     const contextRef = useRef(null)
     const [isdrawing, setIsdrawing] = useState(false)
+    const [color,setcolor] = useState("blue")
 
     const startDrawing = ({nativeEvent})=> {
         const {offsetX,offsetY} = nativeEvent; 
@@ -33,7 +34,7 @@ function Board(){
         const context = canvas.getContext("2d")
         context.scale(2,2)
         context.lineCap = "round"
-        context.strokeStyle= "black"
+        context.strokeStyle= `${color}`
         context.lineWidth =5
         contextRef.current = context;
     },[])
