@@ -6,6 +6,7 @@ function Board(props){
     const contextRef = useRef(null)
     const [isdrawing, setIsdrawing] = useState(false)
     const [color,setcolor] = useState("black");
+    const [Clearscreen,setclear] = useState(false);
 
     const startDrawing = ({nativeEvent})=> {
         const {offsetX,offsetY} = nativeEvent; 
@@ -38,18 +39,27 @@ function Board(props){
         context.scale(2,2);
         context.lineCap = "square"
         console.log("function"+color);
-        context.lineWidth =1
+        context.lineWidth =2
         contextRef.current = context;  
 
         
-    },[]);
+    },[Clearscreen]);
     useEffect(()=>{
         
         contextRef.current.strokeStyle=color;
+        contextRef.current.lineWidth=2;
        
     },[color]);
+    function colorclear(e){
+        setclear(!Clearscreen);
+    }
     function colorchanger(e){
         setcolor(e.target.value);
+    }
+    function eraser(e){
+        contextRef.current.strokeStyle="#f5f5f5";
+
+contextRef.current.lineWidth=10;
     }
         return (<>
             <canvas 
@@ -62,7 +72,10 @@ function Board(props){
             >
             </canvas>
             <input type="color" onChange={colorchanger}id="favcolor" name="favcolor" value="#ff0000"/>
+            <button onClick={colorclear}>Clear</button>
+            <button onClick={eraser}>Eraser</button>
             </>
+            
         )
     }
 
