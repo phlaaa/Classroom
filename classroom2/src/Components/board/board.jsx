@@ -4,6 +4,7 @@ function Board(){
     const canvasRef = useRef(null)
     const contextRef = useRef(null)
     const [isdrawing, setIsdrawing] = useState(false)
+    const [color,setcolor] = useState("blue")
 
     const startDrawing = ({nativeEvent})=> {
         const {offsetX,offsetY} = nativeEvent; 
