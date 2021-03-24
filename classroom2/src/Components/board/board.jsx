@@ -10,6 +10,7 @@ function Board(props){
     const startDrawing = ({nativeEvent})=> {
         const {offsetX,offsetY} = nativeEvent; 
         contextRef.current.beginPath()
+        console.log("function1"+contextRef.current.stroke);
         contextRef.current.moveTo(offsetX,offsetY)
         setIsdrawing(true)
     }
@@ -43,8 +44,9 @@ function Board(props){
         
     },[]);
     useEffect(()=>{
-        console.log("function"+color);
-        contextRef.current.color=color;
+        
+        contextRef.current.strokeStyle=color;
+       
     },[color]);
     function colorchanger(e){
         setcolor(e.target.value);
