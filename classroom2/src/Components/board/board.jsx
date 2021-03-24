@@ -33,17 +33,18 @@ function Board(props){
         canvas.height = window.innerHeight*2;
         canvas.style.width = `${window.innerWidth}px`;
         canvas.style.height = `${window.innerHeight}px`;
+        const context = canvas.getContext("2d");
         context.scale(2,2);
         context.lineCap = "square"
-        context.strokeStyle=color;
         console.log("function"+color);
         context.lineWidth =1
-        contextRef.current = context;  const context = canvas.getContext("2d");
+        contextRef.current = context;  
 
         
     },[]);
     useEffect(()=>{
-        context.strokeStyle=color;
+        console.log("function"+color);
+        contextRef.current.color=color;
     },[color]);
     function colorchanger(e){
         setcolor(e.target.value);
